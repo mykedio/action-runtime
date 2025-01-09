@@ -1,9 +1,9 @@
+const fs = require('fs');
 const axios = require('axios');
 
-const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 const USER_INFO_URL = process.env.USER_INFO_URL;
 
-if (!ACCESS_TOKEN || !USER_INFO_URL) {
+if (!!USER_INFO_URL) {
     throw new Error('access token and user info url required');
 }
 
@@ -17,13 +17,15 @@ const main = async () => {
     const action = require('./action.json');
     const errors = [];
 
+    const token = fs.readFileSync('token');
+
     // load userdata from Auth0
     // TODO: use user token/refresh token instead of machine token?
     // this would reduce number of machine tokens + ensure user is authenticated.
     let response;
     let user;
     try {
-        response = await axios.get('https://id.myked.io/userinfo', { headers: {Authorization: `Bearer ${accessToken}`}});
+        response = await axios.get(USER_INFO_URL, { headers: {Authorization: `Bearer ${accessToken}`}});
         user = response.data;
     } catch (error) {
         errors.push(error);
