@@ -29,6 +29,7 @@ const main = async () => {
 
     const context = {
         user,
+        action,
         variables: action.variables,
         secrets: action.secrets,
     };
