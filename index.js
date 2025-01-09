@@ -1,4 +1,5 @@
 const startTime = performance.now();
+
 const axios = require('axios');
 const { setup } = require('./setup');
 const { join } = require('path');
@@ -30,6 +31,8 @@ const main = async () => {
     } catch (error) {
         errors.push(error);
     }
+
+    console.log(result);
 
     // handle setup failures
     if (errors.length !== 0) {
