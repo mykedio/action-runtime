@@ -1,12 +1,6 @@
 const fs = require('fs');
 const axios = require('axios');
 
-const USER_INFO_URL = process.env.USER_INFO_URL;
-
-if (!!USER_INFO_URL) {
-    throw new Error('access token and user info url required');
-}
-
 const runtime = async (context, fn) => {
     // log result
     return await fn(context);
@@ -25,7 +19,7 @@ const main = async () => {
     let response;
     let user;
     try {
-        response = await axios.get(USER_INFO_URL, { headers: {Authorization: `Bearer ${token}`}});
+        response = await axios.get('https://id.myked.io/userinfo', { headers: {Authorization: `Bearer ${token}`}});
         user = response.data;
     } catch (error) {
         errors.push(error);
