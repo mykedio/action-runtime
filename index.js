@@ -13,6 +13,8 @@ const main = async () => {
 
     const token = fs.readFileSync('token');
 
+    const startTime = performance.now();
+
     // load userdata from Auth0
     // TODO: use user token/refresh token instead of machine token?
     // this would reduce number of machine tokens + ensure user is authenticated.
@@ -51,11 +53,14 @@ const main = async () => {
         errors.push(error);
     }
 
+    const endTime = performance.now();
+
     const result = {
         context,
         data: dataJson,
         errors: errors,
-        status: errors.length !== 0 ? 'failed' : 'completed'
+        status: errors.length !== 0 ? 'failed' : 'completed',
+        duration: endTime - startTime
     };
 
     console.log(JSON.stringify(result));
