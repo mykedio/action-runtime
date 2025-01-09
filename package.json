@@ -1,0 +1,9 @@
+{
+    "name": "@myked/runtime-v1",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/myked/runtime-v1",
+    "author": "Myked IO",
+    "license": "MIT",
+    "dependencies": {}
+}
