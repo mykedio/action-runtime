@@ -58,6 +58,6 @@ const main = async () => {
         status: errors.length !== 0 ? 'failed' : 'completed'
     };
 
-    console.log(result);
+    console.log(JSON.stringify(result));
 };
 main();
