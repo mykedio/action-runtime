@@ -1,7 +1,4 @@
 const { readJsonSync, pathExistsSync, writeFileSync } = require('fs-extra');
-const { createHash } = require('crypto');
-const axios = require('axios');
-const { join } = require('path');
 
 exports.setup = async (path) => {
     if (!pathExistsSync(path)) {
