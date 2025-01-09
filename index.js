@@ -32,13 +32,6 @@ const main = async () => {
         errors.push(error);
     }
 
-    // handle setup failures
-    if (errors.length !== 0) {
-        // TODO: record initial failure with API
-        console.log(errors);
-        throw new Error('initial setup has failed', errors);
-    }
-
     // get result
     let dataJson = null;
     try {
