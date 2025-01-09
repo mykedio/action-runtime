@@ -5,5 +5,9 @@
     "repository": "https://github.com/myked/runtime-v1",
     "author": "Myked IO",
     "license": "MIT",
-    "dependencies": {}
+    "dependencies": {},
+    "peerDependencies": {
+        "axios": "1.7.9",
+        "fs-extra": "11.2.0"
+    }
 }
