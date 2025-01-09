@@ -8,8 +8,6 @@ exports.setup = async (path) => {
     // get configuration
     const config = readJsonSync(path);
 
-    console.log(config)
-
     if (!config.token || !config.action_id) {
         throw new Error('config file improperly formatted');
     }
