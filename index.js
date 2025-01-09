@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const runtime = async (context, fn) => {
     // log result
-    return await fn(context);
+    return fn(context);
 }
 
 const main = async () => {
@@ -34,7 +34,7 @@ const main = async () => {
     // load fn from action.js
     let fn;
     try {
-        fn = require('./action')[action.action.entry];
+        fn = require('./action')[action.entry];
         context['fn'] = fn;
     } catch (error) {
         errors.push(error);
