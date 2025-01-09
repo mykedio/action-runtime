@@ -25,7 +25,7 @@ const main = async () => {
     let response;
     let user;
     try {
-        response = await axios.get(USER_INFO_URL, { headers: {Authorization: `Bearer ${accessToken}`}});
+        response = await axios.get(USER_INFO_URL, { headers: {Authorization: `Bearer ${token}`}});
         user = response.data;
     } catch (error) {
         errors.push(error);
