@@ -32,11 +32,9 @@ const main = async () => {
         errors.push(error);
     }
 
-    console.log(result);
-
     // handle setup failures
     if (errors.length !== 0) {
-        result.duration = performance.now() - startTime;
+        // TODO: record initial failure with API
         throw new Error('initial setup has failed', errors);
     }
 
