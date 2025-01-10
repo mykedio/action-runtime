@@ -50,7 +50,7 @@ const main = async () => {
     result.duration = endTime - startTime;
     result.status = errors.length !== 0 ? 'failed' : 'completed';
 
-    console.log(result);
+    console.log(JSON.stringify(result));
 
     const { result_id, context, ...rest } = result;
     await axios.patch(`${config.api_base_url}/results/${result.result_id}`, rest, {
